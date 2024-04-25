@@ -1,4 +1,8 @@
+using System.Reflection;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var assembly = Assembly.Load("Parking.Application");
 
 // Add services to the container.
 
