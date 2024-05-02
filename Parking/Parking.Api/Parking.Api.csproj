@@ -8,8 +8,15 @@
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Parking.Application\Parking.Application.csproj" />
+    <ProjectReference Include="..\Parking.Infrastructure\Parking.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

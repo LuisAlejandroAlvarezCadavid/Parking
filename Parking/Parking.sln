@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parking.Api", "Parking.Api\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parking.Application", "Parking.Application\Parking.Application.csproj", "{F1887C48-F372-4A2F-8378-E705ED7DB330}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Parking.Repository", "Parking.Repository\Parking.Repository.csproj", "{817F1BE3-C805-441B-9A0E-75FDA59B9233}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parking.Infrastructure", "Parking.Infrastructure\Parking.Infrastructure.csproj", "{3B8611F7-5F47-4C20-9BD0-6753B742771F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{F1887C48-F372-4A2F-8378-E705ED7DB330}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1887C48-F372-4A2F-8378-E705ED7DB330}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1887C48-F372-4A2F-8378-E705ED7DB330}.Release|Any CPU.Build.0 = Release|Any CPU
-		{817F1BE3-C805-441B-9A0E-75FDA59B9233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{817F1BE3-C805-441B-9A0E-75FDA59B9233}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{817F1BE3-C805-441B-9A0E-75FDA59B9233}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{817F1BE3-C805-441B-9A0E-75FDA59B9233}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B8611F7-5F47-4C20-9BD0-6753B742771F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B8611F7-5F47-4C20-9BD0-6753B742771F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B8611F7-5F47-4C20-9BD0-6753B742771F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B8611F7-5F47-4C20-9BD0-6753B742771F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using Parking.Api.Middleware;
+using Parking.Infrastructure.DataContext;
 using System.Reflection;
 
+
 var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
 
-var assembly = Assembly.Load("Parking.Application");
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.Load("Parking.Application")));
+builder.Services.AddAutoMapper(Assembly.Load("Parking.Application"));
 
+builder.Services.AddDbContext<IntegracionDbContext>(options => options.UseSqlServer(
+    config.GetConnectionString("YourConnectionString"),
+    sqlServerOptions => { sqlServerOptions.CommandTimeout(60); sqlServerOptions.MigrationsHistoryTable("MigrationHistory"); }
+));
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -23,6 +33,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<AppExceptionHandlerMiddleware>();
 
 app.MapControllers();
 
