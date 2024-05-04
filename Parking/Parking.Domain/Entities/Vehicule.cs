@@ -5,7 +5,7 @@
 
         string plate;
         DateTime enterTime;
-        DateTime leaveTime;
+        public DateTime? leaveTime { get; private set; }
         public string Plate
         {
             get => plate;
@@ -32,25 +32,13 @@
             }
         }
 
-        public DateTime LeaveTime
-        {
-            get => leaveTime;
-            set
-            {
-                if (value.Ticks == 0)
-                {
-                    throw new ArgumentNullException(nameof(LeaveTime), "La propiedad {0} no puede contener valores nulos");
-                }
-                leaveTime = value;
-            }
-        }
 
 
-        public Vehicule(Guid id, DateTime fechaCreacion, DateTime fechaModificacion, string plate, DateTime enterTime, DateTime leaveTime) : base(id, fechaCreacion, fechaModificacion)
+
+        public Vehicule(Guid id, DateTime fechaCreacion, DateTime fechaModificacion, string plate, DateTime enterTime) : base(id, fechaCreacion, fechaModificacion)
         {
             Plate = plate;
             EnterTime = enterTime;
-            LeaveTime = leaveTime;
         }
     }
 }

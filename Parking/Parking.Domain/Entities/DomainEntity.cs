@@ -5,6 +5,7 @@
         Guid id;
         DateTime fechaCreacion;
         DateTime fechaModificacion;
+        public bool Pay { get; private set; } = false;
         public Guid Id
         {
             get => id;
@@ -47,6 +48,7 @@
                 fechaModificacion = value;
             }
         }
+
 
         public DomainEntity(Guid id, DateTime fechaCreacion, DateTime fechaModificacion)
         {

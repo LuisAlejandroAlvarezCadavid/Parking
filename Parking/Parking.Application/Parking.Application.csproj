@@ -12,8 +12,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="MotorCycles\" />
-    <Folder Include="Vehicules\Commands\" />
+    <Folder Include="MotorCycles\Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Parking.Domain\Parking.Domain.csproj" />
   </ItemGroup>
 
 </Project>
