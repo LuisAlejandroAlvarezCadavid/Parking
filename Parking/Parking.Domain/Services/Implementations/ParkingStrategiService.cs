@@ -7,17 +7,17 @@ namespace Parking.Domain.Services.Implementations
     public class ParkingStrategiService
     {
 
-        readonly IEnumerable<IVehicleEnterStrategyService> _vehicleEnterStrategyService;
+        readonly IEnumerable<IVehicleStrategyService> _vehicleEnterStrategyService;
 
-        public ParkingStrategiService(IEnumerable<IVehicleEnterStrategyService> vehicleEnterStrategyService)
+        public ParkingStrategiService(IEnumerable<IVehicleStrategyService> vehicleEnterStrategyService)
         {
             _vehicleEnterStrategyService = vehicleEnterStrategyService;
         }
 
-        public async Task<DomainEntity> InsertEnterVehiculeAsync(string plate, string vehiculeType, CancellationToken cancellationToken)
+        public async Task<DomainEntity> InsertVehiculeAsync(string plate, string vehiculeType, CancellationToken cancellationToken)
         {
             var strategy = _vehicleEnterStrategyService.FirstOrDefault(strategy => strategy.VehiculeType == vehiculeType);
-            return await strategy!.InsertEnterVehiculeAsync<DomainEntity>(plate, cancellationToken);
+            return await strategy!.InsertVehiculeAsync<DomainEntity>(plate, cancellationToken);
         }
     }
 }

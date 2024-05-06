@@ -4,21 +4,21 @@ using Parking.Domain.Ports;
 namespace Parking.Domain.Services.Implementations
 {
     [DomainService]
-    public class VehiculeService : VehiculeMotorCycleService
+    public class VehiculeInsertService : VehiculeMotorCycleService
     {
         public override string VehiculeType { get; set; } = "VH";
 
-        readonly IVehiculeEnterRepository _vehiculeEnterRepository;
+        readonly IVehiculeInsertRepository _vehiculeEnterRepository;
 
-        public VehiculeService(IVehiculeEnterRepository vehiculeEnterRepository)
+        public VehiculeInsertService(IVehiculeInsertRepository vehiculeEnterRepository)
         {
             _vehiculeEnterRepository = vehiculeEnterRepository;
         }
 
-        public override async Task<TResult> InsertEnterVehiculeAsync<TResult>(string plate, CancellationToken cancellationToken)
+        public override async Task<TResult> InsertVehiculeAsync<TResult>(string plate, CancellationToken cancellationToken)
         {
             var vehicule = new Vehicule(Guid.NewGuid(), DateTime.Now, DateTime.Now, plate, DateTime.Now);
-            var result = await _vehiculeEnterRepository.EnterVehiculeAsync(vehicule, cancellationToken);
+            var result = await _vehiculeEnterRepository.InsertVehiculeAsync(vehicule, cancellationToken);
             if (result != null)
             {
                 return (TResult)(DomainEntity)result;

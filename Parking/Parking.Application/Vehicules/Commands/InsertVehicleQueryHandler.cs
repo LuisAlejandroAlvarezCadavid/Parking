@@ -18,7 +18,7 @@ namespace Parking.Application.Vehicules.Commands
 
         public async Task<VehiculeDto> Handle(InsertVehicleQuery request, CancellationToken cancellationToken)
         {
-            var vehiculeInsert = (Vehicule)await _parkingStrategiService.InsertEnterVehiculeAsync(request.plate, request.vehiculeType, cancellationToken);
+            var vehiculeInsert = (Vehicule)await _parkingStrategiService.InsertVehiculeOrMotorCycleAsync(request.plate, request.vehiculeType, cancellationToken);
             return _mapper.Map<VehiculeDto>(vehiculeInsert);
         }
     }

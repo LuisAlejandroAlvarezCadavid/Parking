@@ -31,6 +31,9 @@ namespace Parking.Api.Controllers
         [HttpPost]
         public async Task<VehiculeDto> InsertVehicule(InsertVehicleQuery insertVehicleQuery) => await _mediator.Send(insertVehicleQuery);
 
+        [HttpPost("motorCycle/")]
+        public async Task<VehiculeDto> InsertMotorCycle(InsertVehicleQuery insertVehicleQuery) => await _mediator.Send(insertVehicleQuery);
+
 
 
     }

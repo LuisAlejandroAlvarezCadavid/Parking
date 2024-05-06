@@ -11,7 +11,7 @@
             get => plate;
             set
             {
-                if (string.IsNullOrEmpty(plate))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException(nameof(Plate), "La propiedad no puede contener valores nulos");
                 }

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Parking.Application.Dtos;
+using Parking.Domain.Entities;
 
 namespace Parking.Application.Vehicules
 {
@@ -6,6 +8,7 @@ namespace Parking.Application.Vehicules
     {
         public VehiculeProfile()
         {
+            CreateMap<Vehicule, VehiculeDto>();
         }
 
     }
