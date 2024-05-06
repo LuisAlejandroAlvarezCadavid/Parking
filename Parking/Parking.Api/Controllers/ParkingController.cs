@@ -1,6 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Parking.Application.Dtos;
 using Parking.Application.MotorCycles.Querys;
+using Parking.Application.Vehicules.Commands;
 using Parking.Application.Vehicules.Querys;
 
 namespace Parking.Api.Controllers
@@ -25,6 +27,9 @@ namespace Parking.Api.Controllers
 
         [HttpGet("vehicule/{plate}/{vehiculeTipe}")]
         public async Task<double> CalculateTimeToPayVehicule(string plate, string vehiculeTipe) => await _mediator.Send(new GetMotorCycleTimeToPayQuery(plate, vehiculeTipe));
+
+        [HttpPost]
+        public async Task<VehiculeDto> InsertVehicule(InsertVehicleQuery insertVehicleQuery) => await _mediator.Send(insertVehicleQuery);
 
 
 

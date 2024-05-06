@@ -5,7 +5,7 @@ namespace Parking.Domain.Services.Implementations
 {
     public abstract class VehiculeMotorCycleService : IVehicleEnterStrategyService
     {
-        public string VehiculeType { get; set; } = "NO";
+        public virtual string VehiculeType { get; set; } = "NO";
 
         public virtual async Task<TResult> InsertEnterVehiculeAsync<TResult>(string plate, CancellationToken cancellationToken) where TResult : DomainEntity
         {

@@ -5,15 +5,17 @@
 
         string plate;
         DateTime enterTime;
-        public DateTime? leaveTime { get; private set; }
+
+        public int? ValuePay { get; private set; }
+        public DateTime? LeaveTime { get; private set; }
         public string Plate
         {
             get => plate;
             set
             {
-                if (string.IsNullOrEmpty(plate))
+                if (string.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentNullException(nameof(Plate), "La propiedad {0} no puede contener valores nulos");
+                    throw new ArgumentNullException(nameof(Plate), "La propiedad no puede contener valores nulos");
                 }
                 plate = value;
             }
@@ -26,7 +28,7 @@
             {
                 if (value.Ticks == 0)
                 {
-                    throw new ArgumentNullException(nameof(EnterTime), "La propiedad {0} no puede contener valores nulos");
+                    throw new ArgumentNullException(nameof(EnterTime), "La propiedad no puede contener valores nulos");
                 }
                 enterTime = value;
             }
@@ -40,5 +42,8 @@
             Plate = plate;
             EnterTime = enterTime;
         }
+
+        public void SetValuePay(int value) => ValuePay = value;
+        public void SetLeaveTime(DateTime leaveTime) => LeaveTime = leaveTime;
     }
 }

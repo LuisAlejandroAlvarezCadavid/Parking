@@ -1,4 +1,5 @@
-﻿using Parking.Domain.Services.Contractors;
+﻿using Parking.Domain.Entities;
+using Parking.Domain.Services.Contractors;
 
 namespace Parking.Domain.Services.Implementations
 {
@@ -13,10 +14,10 @@ namespace Parking.Domain.Services.Implementations
             _vehicleEnterStrategyService = vehicleEnterStrategyService;
         }
 
-        public async Task<TResult> InsertEnterVehiculeAsync<TResult>(string plate, string vehiculeType)
+        public async Task<DomainEntity> InsertEnterVehiculeAsync(string plate, string vehiculeType, CancellationToken cancellationToken)
         {
             var strategy = _vehicleEnterStrategyService.FirstOrDefault(strategy => strategy.VehiculeType == vehiculeType);
-            return await strategy.InsertEnterVehiculeAsync<TResult>()
+            return await strategy!.InsertEnterVehiculeAsync<DomainEntity>(plate, cancellationToken);
         }
     }
 }

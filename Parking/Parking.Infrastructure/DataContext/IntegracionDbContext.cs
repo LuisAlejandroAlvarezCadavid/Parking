@@ -29,6 +29,7 @@ namespace Parking.Infrastructure.DataContext
 
             modelBuilder.Entity<MotorCycle>();
             modelBuilder.Entity<Vehicule>();
+            modelBuilder.Entity<Logs>();
 
 
             // ghost properties for audit

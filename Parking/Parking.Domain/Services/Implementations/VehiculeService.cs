@@ -6,7 +6,7 @@ namespace Parking.Domain.Services.Implementations
     [DomainService]
     public class VehiculeService : VehiculeMotorCycleService
     {
-        public string VehiculeType { get; set; } = "VH";
+        public override string VehiculeType { get; set; } = "VH";
 
         readonly IVehiculeEnterRepository _vehiculeEnterRepository;
 

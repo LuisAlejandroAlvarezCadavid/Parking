@@ -13,7 +13,7 @@
             {
                 if (value == Guid.Empty)
                 {
-                    throw new ArgumentNullException(nameof(Id), "La propiedad {0} no puede contener valores nulos");
+                    throw new ArgumentNullException(nameof(Id), "La propiedad no puede contener valores nulos");
                 }
                 id = value;
             }
@@ -27,7 +27,7 @@
             {
                 if (value.Ticks == 0)
                 {
-                    throw new ArgumentNullException(nameof(FechaCreacion), "La propiedad {0} no puede contener valores nulos");
+                    throw new ArgumentNullException(nameof(FechaCreacion), "La propiedad no puede contener valores nulos");
 
                 }
                 fechaCreacion = value;
@@ -42,7 +42,7 @@
             {
                 if (value.Ticks == 0)
                 {
-                    throw new ArgumentNullException(nameof(FechaModificacion), "La propiedad {0} no puede contener valores nulos");
+                    throw new ArgumentNullException(nameof(FechaModificacion), "La propiedad no puede contener valores nulos");
 
                 }
                 fechaModificacion = value;
@@ -56,5 +56,7 @@
             FechaCreacion = fechaCreacion;
             FechaModificacion = fechaModificacion;
         }
+
+        public void SetPay(bool pay) => Pay = pay;
     }
 }

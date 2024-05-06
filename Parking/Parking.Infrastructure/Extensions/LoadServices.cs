@@ -44,8 +44,8 @@ namespace Parking.Infrastructure.Extensions
             // repos
             foreach (var repo in _repositories)
             {
-                Type iface = repo.GetInterfaces().Single();
-                services.AddTransient(iface, repo);
+                var iface = repo.GetInterfaces();
+                services.AddTransient(iface[1], repo);
             }
 
             return services;
