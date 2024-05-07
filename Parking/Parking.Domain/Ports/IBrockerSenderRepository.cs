@@ -4,6 +4,6 @@ namespace Parking.Domain.Ports
 {
     public interface IBrockerSenderRepository
     {
-        Task<bool> ConfigAndSendMessageToBrocker(Logs logsMessage);
+        bool ConfigAndSendMessageToBrocker(Logs logsMessage);
     }
 }

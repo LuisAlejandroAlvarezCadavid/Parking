@@ -1,8 +1,18 @@
 ﻿using Parking.Domain.Ports;
+using Parking.Infrastructure.DataContext;
 
 namespace Parking.Infrastructure.Adapters.MotorCycle
 {
-    public class MotorCycleInsertRepository : IMotorCycleInsertRepository
+    [Repository]
+    public class MotorCycleInsertRepository : GenericRepository<Domain.Entities.MotorCycle, Guid>, IMotorCycleInsertRepository
     {
+        public MotorCycleInsertRepository(IntegracionDbContext integracionDbContext) : base(integracionDbContext)
+        {
+        }
+
+        public async Task<Domain.Entities.MotorCycle> InsertMotorCycleAsync(Domain.Entities.MotorCycle vehicule, CancellationToken cancellationToken)
+        {
+            return await AddAsync(vehicule, cancellationToken);
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Parking.Domain.Services.Implementations
 
         public override async Task<TResult> InsertVehiculeOrMotorCycleAsync<TResult>(string plate, CancellationToken cancellationToken)
         {
-            var vehicule = new Vehicule(Guid.NewGuid(), DateTime.Now, DateTime.Now, plate, DateTime.Now);
+            var vehicule = new MotorCycle(Guid.NewGuid(), DateTime.Now, DateTime.Now, plate, DateTime.Now);
             var result = await _motorCycleInsertRepository.InsertMotorCycleAsync(vehicule, cancellationToken);
             if (result != null)
             {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Parking.Domain.Services;
 using Parking.Infrastructure.Adapters;
+using Parking.Infrastructure.Enums;
 
 namespace Parking.Infrastructure.Extensions
 {
@@ -45,7 +46,14 @@ namespace Parking.Infrastructure.Extensions
             foreach (var repo in _repositories)
             {
                 var iface = repo.GetInterfaces();
-                services.AddTransient(iface[1], repo);
+                if (iface.Length > (int)Numbers.ONE)
+                {
+                    services.AddTransient(iface[1], repo);
+                }
+                else
+                {
+                    services.AddTransient(iface[0], repo);
+                }
             }
 
             return services;

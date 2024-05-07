@@ -4,7 +4,7 @@
     {
         string plate;
         DateTime enterTime;
-
+        public string? Observation { get; set; } = default!;
         public int? ValuePay { get; set; }
         public DateTime? LeaveTime { get; set; }
         public string Plate
@@ -12,7 +12,7 @@
             get => plate;
             set
             {
-                if (string.IsNullOrEmpty(plate))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new ArgumentNullException(nameof(Plate), "La propiedad {0} no puede contener valores nulos");
                 }
