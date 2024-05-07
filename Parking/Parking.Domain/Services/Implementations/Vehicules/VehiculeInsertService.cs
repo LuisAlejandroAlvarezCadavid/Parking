@@ -1,17 +1,18 @@
 ﻿using Parking.Domain.Entities;
 using Parking.Domain.Ports;
+using Parking.Domain.Structs;
 
-namespace Parking.Domain.Services.Implementations
+namespace Parking.Domain.Services.Implementations.Vehicules
 {
     [DomainService]
     public class VehiculeInsertService : VehiculeMotorCycleService
     {
-        public override string VehiculeType { get; set; } = "VH";
+        public override string VehiculeType { get; set; } = Texts.VEHICULE;
 
-        readonly IVehiculeInsertRepository _vehiculeEnterRepository;
+        readonly IVehiculeRepository _vehiculeEnterRepository;
         readonly IBrockerSenderRepository _brockerSenderRepository;
 
-        public VehiculeInsertService(IVehiculeInsertRepository vehiculeEnterRepository, IBrockerSenderRepository brockerSenderRepository)
+        public VehiculeInsertService(IVehiculeRepository vehiculeEnterRepository, IBrockerSenderRepository brockerSenderRepository)
         {
             _vehiculeEnterRepository = vehiculeEnterRepository;
             _brockerSenderRepository = brockerSenderRepository;
@@ -23,9 +24,7 @@ namespace Parking.Domain.Services.Implementations
             var result = await _vehiculeEnterRepository.InsertVehiculeAsync(vehicule, cancellationToken);
             if (result != null)
             {
-                var log = new Logs(Guid.NewGuid(), DateTime.Now, DateTime.Now, plate, DateTime.Now);
-                log.SetLeaveTime(DateTime.Now);
-                _brockerSenderRepository.ConfigAndSendMessageToBrocker(log);
+                SharedTasks.SendBrockerMessge(_brockerSenderRepository, plate);
                 return (TResult)(DomainEntity)result;
 
             }

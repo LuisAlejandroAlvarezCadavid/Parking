@@ -2,7 +2,7 @@
 
 namespace Parking.Domain.Ports
 {
-    public interface IVehiculeInsertRepository
+    public interface IVehiculeRepository
     {
         Task<Vehicule> InsertVehiculeAsync(Vehicule vehicule, CancellationToken cancellationToken);
     }

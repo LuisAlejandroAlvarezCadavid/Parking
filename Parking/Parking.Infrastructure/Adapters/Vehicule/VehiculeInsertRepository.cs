@@ -5,7 +5,7 @@ namespace Parking.Infrastructure.Adapters.Vehicule
 {
 
     [Repository]
-    public class VehiculeInsertRepository : GenericRepository<Domain.Entities.Vehicule, Guid>, IVehiculeInsertRepository
+    public class VehiculeInsertRepository : GenericRepository<Domain.Entities.Vehicule, Guid>, IVehiculeRepository
     {
 
         public VehiculeInsertRepository(IntegracionDbContext integracionDbContext) : base(integracionDbContext)

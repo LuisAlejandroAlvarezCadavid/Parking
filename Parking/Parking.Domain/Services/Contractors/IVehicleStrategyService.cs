@@ -7,5 +7,7 @@ namespace Parking.Domain.Services.Contractors
         public abstract string VehiculeType { get; set; }
 
         Task<TResult> InsertVehiculeOrMotorCycleAsync<TResult>(string plate, CancellationToken cancellationToken) where TResult : DomainEntity;
+
+        Task<double> GetValueToPayVehiculeOrMotorCycleAsync(string plate, CancellationToken cancellationToken);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Parking.Domain.Ports
 {
-    public interface IMotorCycleInsertRepository
+    public interface IMotorCycleRepository
     {
         Task<MotorCycle> InsertMotorCycleAsync(MotorCycle vehicule, CancellationToken cancellationToken);
     }

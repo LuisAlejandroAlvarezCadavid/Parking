@@ -4,7 +4,7 @@ using Parking.Infrastructure.DataContext;
 namespace Parking.Infrastructure.Adapters.MotorCycle
 {
     [Repository]
-    public class MotorCycleInsertRepository : GenericRepository<Domain.Entities.MotorCycle, Guid>, IMotorCycleInsertRepository
+    public class MotorCycleInsertRepository : GenericRepository<Domain.Entities.MotorCycle, Guid>, IMotorCycleRepository
     {
         public MotorCycleInsertRepository(IntegracionDbContext integracionDbContext) : base(integracionDbContext)
         {
