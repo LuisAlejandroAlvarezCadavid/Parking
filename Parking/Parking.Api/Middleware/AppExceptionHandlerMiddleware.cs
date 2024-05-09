@@ -1,4 +1,5 @@
-﻿using Parking.Infrastructure.Exceptions;
+﻿using Parking.Domain.Exceptions;
+using Parking.Infrastructure.Exceptions;
 using System.Net;
 
 namespace Parking.Api.Middleware
@@ -33,6 +34,7 @@ namespace Parking.Api.Middleware
                 context.Response.StatusCode = exception switch
                 {
                     ArgumentNullException => (int)HttpStatusCode.BadRequest,
+                    VehiculeMotorCycleException => (int)HttpStatusCode.BadRequest,
                     BrockerException => (int)HttpStatusCode.InternalServerError,
                     _ => (int)HttpStatusCode.InternalServerError,
                 };

@@ -12,11 +12,7 @@
             get => plate;
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException(nameof(Plate), "La propiedad {0} no puede contener valores nulos");
-                }
-                plate = value;
+                plate = string.IsNullOrEmpty(value) ? throw new ArgumentNullException(nameof(Plate), "La propiedad {0} no puede contener valores nulos") : value;
             }
         }
 
@@ -25,11 +21,7 @@
             get => enterTime;
             set
             {
-                if (value.Ticks == 0)
-                {
-                    throw new ArgumentNullException(nameof(EnterTime), "La propiedad {0} no puede contener valores nulos");
-                }
-                enterTime = value;
+                enterTime = value.Ticks == 0 ? throw new ArgumentNullException(nameof(EnterTime), "La feha debe contener un valor correcto") : value;
             }
         }
 

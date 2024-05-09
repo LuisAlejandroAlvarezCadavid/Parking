@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Parking.Domain.Structs;
 
 namespace Parking.Domain.Services.Implementations.MotorCycles
 {
-    internal class MotorCycleValueToPayService
+    public class MotorCycleValueToPayService : VehiculeMotorCycleService
     {
+        public override string VehiculeType { get; set; } = Texts.VEHICULE_TO_PAY;
     }
 }

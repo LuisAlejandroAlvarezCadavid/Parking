@@ -7,17 +7,13 @@
         DateTime enterTime;
 
         public int? ValuePay { get; private set; }
-        public DateTime? LeaveTime { get; private set; }
+        public DateTime? LeaveTime { get; private set; } = default!;
         public string Plate
         {
             get => plate;
             set
             {
-                if (string.IsNullOrEmpty(value))
-                {
-                    throw new ArgumentNullException(nameof(Plate), "La propiedad no puede contener valores nulos");
-                }
-                plate = value;
+                plate = string.IsNullOrEmpty(value) ? throw new ArgumentNullException(nameof(Plate), "La propiedad no puede contener valores nulos") : value;
             }
         }
 
@@ -26,11 +22,7 @@
             get => enterTime;
             set
             {
-                if (value.Ticks == 0)
-                {
-                    throw new ArgumentNullException(nameof(EnterTime), "La propiedad no puede contener valores nulos");
-                }
-                enterTime = value;
+                enterTime = value.Ticks == 0 ? throw new ArgumentNullException(nameof(EnterTime), "La propiedad no puede contener valores incorrectos") : value;
             }
         }
 
