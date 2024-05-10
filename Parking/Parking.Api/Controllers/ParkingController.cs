@@ -26,7 +26,7 @@ namespace Parking.Api.Controllers
         public async Task<double> CalculateTimeTiPayMottorCicle(string plate, string vehiculeTipe) => await _mediator.Send(new GetVehiculeTimeToPayQuery(plate, vehiculeTipe));
 
 
-        [HttpGet("vehicule/{plate}/{vehiculeTipe}")]
+        [HttpGet("motorCycle/{plate}/{vehiculeTipe}")]
         public async Task<double> CalculateTimeToPayVehicule(string plate, string vehiculeTipe) => await _mediator.Send(new GetMotorCycleTimeToPayQuery(plate, vehiculeTipe));
 
         [HttpPost]

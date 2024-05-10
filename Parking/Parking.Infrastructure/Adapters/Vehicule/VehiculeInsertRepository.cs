@@ -1,6 +1,7 @@
 ﻿using Parking.Domain.Exceptions;
 using Parking.Domain.Ports;
 using Parking.Infrastructure.DataContext;
+using Parking.Infrastructure.Resources;
 
 namespace Parking.Infrastructure.Adapters.Vehicule
 {
@@ -22,7 +23,7 @@ namespace Parking.Infrastructure.Adapters.Vehicule
         public async Task<Domain.Entities.Vehicule> GetVehiculeAsync(string plate, CancellationToken cancellationToken)
         {
             var vehicule = (await GetAsync(cancellationToken)).Find(vehicule => vehicule.Plate == plate && vehicule.LeaveTime == null);
-            return vehicule ?? throw new VehiculeMotorCycleException("La placa ingresada no coincide con ningun vehiculo o moto ingresada");
+            return vehicule ?? throw new VehiculeMotorCycleException(InfrastructureMessage.VehiculeDoNotExist);
         }
     }
 }

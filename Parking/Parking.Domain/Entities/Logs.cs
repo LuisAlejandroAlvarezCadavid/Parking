@@ -4,8 +4,8 @@
     {
         string plate;
         DateTime enterTime;
-        public string? Observation { get; set; } = default!;
-        public int? ValuePay { get; set; }
+        public string? Observation { get; set; }
+        public double? ValuePay { get; set; }
         public DateTime? LeaveTime { get; set; }
         public string Plate
         {
@@ -25,13 +25,14 @@
             }
         }
 
-        public Logs(Guid id, DateTime fechaCreacion, DateTime fechaModificacion, string plate, DateTime enterTime) : base(id, fechaCreacion, fechaModificacion)
+        public Logs(Guid id, DateTime fechaCreacion, DateTime fechaModificacion, string plate, DateTime enterTime, string? observation = default) : base(id, fechaCreacion, fechaModificacion)
         {
             Plate = plate;
             EnterTime = enterTime;
+            Observation = observation;
         }
 
-        public void SetValuePay(int value) => ValuePay = value;
+        public void SetValuePay(double? value) => ValuePay = value;
         public void SetLeaveTime(DateTime leaveTime) => LeaveTime = leaveTime;
     }
 }

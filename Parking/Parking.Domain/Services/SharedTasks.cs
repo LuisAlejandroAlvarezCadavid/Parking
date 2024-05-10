@@ -1,14 +1,14 @@
 ﻿using Parking.Domain.Entities;
-using Parking.Domain.Enums;
 using Parking.Domain.Ports;
 
 namespace Parking.Domain.Services
 {
     internal static class SharedTasks
     {
-        internal static void SendBrockerMessge(IBrockerSenderRepository brockerSenderRepository, string plate)
+        internal static void SendBrockerMessge(IBrockerSenderRepository brockerSenderRepository, string plate, string? observation = default, double? valueToPay = 0.0)
         {
-            var log = new Logs(Guid.NewGuid(), DateTime.Now, DateTime.Now, plate, DateTime.Now);
+            var log = new Logs(Guid.NewGuid(), DateTime.Now, DateTime.Now, plate, DateTime.Now, observation);
+            log.SetValuePay(valueToPay);
             log.SetLeaveTime(DateTime.Now);
             brockerSenderRepository.ConfigAndSendMessageToBrocker(log);
         }
@@ -16,16 +16,7 @@ namespace Parking.Domain.Services
         internal static double CalculateValueToPay(DateTime enterTime, DateTime leaveTime, double valueByHour, double valueOfOneDay)
         {
             var time = leaveTime - enterTime;
-            var totalHours = time.Hours;
-            double valueToPay = 0.0;
-            if (time.Hours > (int)Numbers.TWENTY_FOUR)
-            {
-                var hours = (int)Math.Round((double)(time.Hours / (int)Numbers.TWENTY_FOUR), 0);
-                valueToPay += hours + valueOfOneDay;
-                totalHours -= hours;
-            }
-
-            valueToPay += totalHours * valueByHour;
+            double valueToPay = time.Days * valueOfOneDay + time.Hours * valueByHour;
             valueToPay = time.Minutes > 0 ? valueToPay + valueByHour : valueToPay;
             return valueToPay;
         }
