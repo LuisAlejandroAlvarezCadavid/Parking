@@ -27,8 +27,8 @@ namespace Parking.Domain.Services.Implementations.Vehicules
             var vehicule = await _vehiculeEnterRepository.GetVehiculeAsync(plate, cancellationToken) ?? throw new VehiculeMotorCycleException(DomainMessages.VehiculeDoNotExist);
             var veluesTOPayFromDataBase = await _vehiculeMotorCycleValuesToPayRepository.GetVehiculeMotorCycleValuesTOPay(Enums.VehiculeType.VEHICULE.ToString(), cancellationToken)
                                           ?? throw new VehiculeMotorCycleException(DomainMessages.VehiculeTypeDoNotExist);
-            var valueTOpay = SharedTasks.CalculateValueToPay(vehicule.EnterTime, DateTime.Now.AddHours(10), veluesTOPayFromDataBase.ValueTOPayForHour, veluesTOPayFromDataBase.ValueTOPayForADay);
-            SharedTasks.SendBrockerMessge(_brockerSenderRepository, plate, string.Format(DomainMessages.VehiculeValueTOPay, plate));
+            var valueTOpay = SharedTasks.CalculateValueToPay(vehicule.EnterTime, DateTime.Now, veluesTOPayFromDataBase.ValueTOPayForHour, veluesTOPayFromDataBase.ValueTOPayForADay);
+            SharedTasks.SendBrockerMessge(_brockerSenderRepository, plate, string.Format(DomainMessages.VehiculeValueTOPay, plate), valueTOpay);
             return valueTOpay;
 
         }
