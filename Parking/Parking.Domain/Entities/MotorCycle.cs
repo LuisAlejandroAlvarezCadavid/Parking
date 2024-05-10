@@ -1,4 +1,6 @@
-﻿namespace Parking.Domain.Entities
+﻿using Parking.Domain.Resources;
+
+namespace Parking.Domain.Entities
 {
     public class MotorCycle : DomainEntity
     {
@@ -11,7 +13,7 @@
             get => plate;
             set
             {
-                plate = string.IsNullOrEmpty(value) ? throw new ArgumentNullException(nameof(Plate), "La propiedad no puede contener valores nulos") : value;
+                plate = string.IsNullOrEmpty(value) ? throw new ArgumentNullException(nameof(Plate), string.Format(DomainMessages.NullValueProperty, nameof(Plate))) : value;
             }
         }
 
@@ -20,7 +22,7 @@
             get => enterTime;
             set
             {
-                enterTime = value.Ticks == 0 ? throw new ArgumentNullException(nameof(EnterTime), "La propiedad no puede contener valores nulos") : value;
+                enterTime = value.Ticks == 0 ? throw new ArgumentNullException(nameof(EnterTime), DomainMessages.DateValue) : value;
             }
         }
 

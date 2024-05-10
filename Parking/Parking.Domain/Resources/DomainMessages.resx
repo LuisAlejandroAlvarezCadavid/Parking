@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DateValue" xml:space="preserve">
+    <value>La feha debe contener un valor correcto</value>
+  </data>
+  <data name="NullValueProperty" xml:space="preserve">
+    <value>La propiedad {0} no puede contener valores nulos</value>
+  </data>
+  <data name="ValueMinorThanZero" xml:space="preserve">
+    <value>La propiedad no puede contener valores menores que cero</value>
+  </data>
   <data name="VehiculeDoNotExist" xml:space="preserve">
     <value>El vehiculo o moto solicitada no existe</value>
   </data>

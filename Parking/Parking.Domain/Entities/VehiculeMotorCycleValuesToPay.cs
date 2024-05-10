@@ -1,4 +1,6 @@
-﻿namespace Parking.Domain.Entities
+﻿using Parking.Domain.Resources;
+
+namespace Parking.Domain.Entities
 {
     public class VehiculeMotorCycleValuesToPay : DomainEntity
     {
@@ -11,7 +13,7 @@
             get => valueTOPayForADay;
             set
             {
-                valueTOPayForADay = value <= 0 ? throw new ArgumentNullException(nameof(ValueTOPayForADay), "La propiedad no puede contener valores incorrectos") : value;
+                valueTOPayForADay = value <= 0 ? throw new ArgumentNullException(nameof(ValueTOPayForADay), DomainMessages.ValueMinorThanZero) : value;
             }
         }
 
@@ -20,7 +22,7 @@
             get => valueTOPayForHour;
             set
             {
-                valueTOPayForHour = value <= 0 ? throw new ArgumentNullException(nameof(ValueTOPayForHour), "La propiedad no puede contener valores incorrectos") : value;
+                valueTOPayForHour = value <= 0 ? throw new ArgumentNullException(nameof(ValueTOPayForHour), DomainMessages.ValueMinorThanZero) : value;
             }
         }
 
@@ -29,7 +31,7 @@
             get => vehiculeType;
             set
             {
-                vehiculeType = string.IsNullOrEmpty(value) ? throw new ArgumentNullException(nameof(VehiculeType), "La propiedad no puede contener valores nulos") : value;
+                vehiculeType = string.IsNullOrEmpty(value) ? throw new ArgumentNullException(nameof(VehiculeType), string.Format(DomainMessages.NullValueProperty, nameof(VehiculeType))) : value;
 
             }
         }

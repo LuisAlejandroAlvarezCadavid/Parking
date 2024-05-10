@@ -61,6 +61,33 @@ namespace Parking.Domain.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to La feha debe contener un valor correcto.
+        /// </summary>
+        internal static string DateValue {
+            get {
+                return ResourceManager.GetString("DateValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La propiedad {0} no puede contener valores nulos.
+        /// </summary>
+        internal static string NullValueProperty {
+            get {
+                return ResourceManager.GetString("NullValueProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La propiedad no puede contener valores menores que cero.
+        /// </summary>
+        internal static string ValueMinorThanZero {
+            get {
+                return ResourceManager.GetString("ValueMinorThanZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to El vehiculo o moto solicitada no existe.
         /// </summary>
         internal static string VehiculeDoNotExist {
