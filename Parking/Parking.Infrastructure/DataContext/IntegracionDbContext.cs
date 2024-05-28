@@ -11,6 +11,7 @@ namespace Parking.Infrastructure.DataContext
         public IntegracionDbContext(DbContextOptions<IntegracionDbContext> options, IConfiguration configuration) : base(options)
         {
             _configuration = configuration;
+            this.Database.SetCommandTimeout(180);
         }
 
 
